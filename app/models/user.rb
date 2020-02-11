@@ -21,4 +21,8 @@ class User < ApplicationRecord
   def follow!(leader)
     leaders << leader if leader != self && !following?(leader)
   end
+
+  def timeline_user_ids
+    leader_ids + [id]
+  end
 end
